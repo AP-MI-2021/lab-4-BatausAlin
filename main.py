@@ -26,9 +26,13 @@ def afisare_numere_negative(lista: list):
         if elem < 0:
             lista_finala.append(elem)
     return lista_finala
+
+
 def test_afisare_numere_negative():
     assert afisare_numere_negative([1, -1, 0, 3, -3, 5, -4, 10, -20]) == [-1, -3, -4, -20]
     assert afisare_numere_negative([1, 0, -1, -3, 0, 2]) == [-1, -3]
+
+
 # Problema 3
 def afisare_numar_mic_egal_cu_cifra_introdusa(lista, cifra):
     '''
@@ -41,6 +45,8 @@ def afisare_numar_mic_egal_cu_cifra_introdusa(lista, cifra):
         if elem % 10 == cifra and min > elem:
             min = elem
     return min
+
+
 def test_afisare_numar_mic_egal_cu_cifra_introdusa():
     assert afisare_numar_mic_egal_cu_cifra_introdusa([1, 6, 34, 68, 40, 48, 20], 8) == 48
     assert afisare_numar_mic_egal_cu_cifra_introdusa([1, 123, 123, 12, 31, 23, 123, 543, 34, 65, 645], 3) == 23
@@ -65,6 +71,8 @@ def prim(numar):
         if numar % i == 0:
             return False
     return True
+
+
 def superprim(lista):
     '''
     Afișarea tuturor numerelor din listă care sunt superprime. Un număr este superprim dacă este
@@ -90,6 +98,8 @@ este prim, iar 239 este superprim deoarece 2, 23 și 239 sunt toate prime.
             lista_finala.append(elem)
 
     return lista_finala
+
+
 def test_superprim():
     assert superprim([239, 1, 123, 23]) == [239, 23]
     assert superprim([239, 1, 12, 3, 33, 37]) == [239, 3, 37]
@@ -103,6 +113,8 @@ def CMMDC(numarul_1, numarul_2):
         else:
             numarul_2 -= numarul_1
     return numarul_1
+
+
 def inversul_numarului(numar):
     '''
     Calculeaza inversul numarului
@@ -116,6 +128,8 @@ def inversul_numarului(numar):
         numar //= 10
 
     return invers
+
+
 def afisare_numere_din_lista_initiala(lista):
     '''
     Afișarea listei obținute din lista inițială în care numerele pozitive și nenule au fost înlocuite cu
@@ -135,14 +149,19 @@ CMMDC-ul lor și numerele negative au cifrele în ordine inversă.
             lista_finala.append(elementul_inversat)
 
     return lista_finala
+
+
 def test_inversul_numarului():
     assert inversul_numarului(123) == 321
     assert inversul_numarului(321) == 123
+
+
 def test_afisare_numere_din_lista_initiala():
     assert afisare_numere_din_lista_initiala([-76, 12, 24, -13, 144]) == [-67, 12, 12, -31, 12]
 
+
 def teste():
-    test_afisare_numere_negative()
+    test_afisare_numere_negative()x`
     test_afisare_numar_mic_egal_cu_cifra_introdusa()
     test_superprim()
     test_inversul_numarului()
