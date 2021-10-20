@@ -161,7 +161,7 @@ def test_afisare_numere_din_lista_initiala():
 
 
 def teste():
-    test_afisare_numere_negative()x`
+    test_afisare_numere_negative()
     test_afisare_numar_mic_egal_cu_cifra_introdusa()
     test_superprim()
     test_inversul_numarului()
