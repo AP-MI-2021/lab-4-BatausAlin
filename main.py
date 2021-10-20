@@ -74,6 +74,13 @@ def prim(numar):
 
 
 def superprim(lista):
+    '''
+    Afișarea tuturor numerelor din listă care sunt superprime. Un număr este superprim dacă este
+strict pozitiv și toate prefixele sale sunt prime. De exemplu, 173 nu este superprim deoarece 1 nu
+este prim, iar 239 este superprim deoarece 2, 23 și 239 sunt toate prime.
+    :param lista: lista
+    :return: lista cu numerele superprime
+    '''
     lista_finala = []
     for elem in lista:
         string_elem = str(elem)
@@ -98,10 +105,58 @@ def test_superprim():
     assert superprim([239, 1, 12, 3, 33, 37]) == [239, 3, 37]
 
 
+# Problema 5
+def CMMDC(numarul_1, numarul_2):
+    while numarul_1 != numarul_2:
+        if numarul_1 > numarul_2:
+            numarul_1 -= numarul_2
+        else:
+            numarul_2 -= numarul_1
+    return numarul_1
+def inversul_numarului(numar):
+    '''
+    Calculeaza inversul numarului
+    :param numar: numarul
+    :return: inversul lui
+    '''
+    invers = 0
+    while numar != 0:
+        rest = numar % 10
+        invers = invers * 10 + rest
+        numar //= 10
+
+    return invers
+def afisare_numere_din_lista_initiala(lista):
+    '''
+    Afișarea listei obținute din lista inițială în care numerele pozitive și nenule au fost înlocuite cu
+CMMDC-ul lor și numerele negative au cifrele în ordine inversă.
+    :param lista: lista
+    :return: lista finala
+    '''
+    lista_finala = []
+    cmmdc = 0
+    for elem in lista:
+        if elem > 0:
+            if cmmdc == 0:
+                cmmdc = elem
+            lista_finala.append(CMMDC(cmmdc, elem))
+        if elem < 0:
+            elementul_inversat = -inversul_numarului(-elem)
+            lista_finala.append(elementul_inversat)
+
+    return lista_finala
+def test_inversul_numarului():
+    assert inversul_numarului(123) == 321
+    assert inversul_numarului(321) == 123
+def test_afisare_numere_din_lista_initiala():
+    assert afisare_numere_din_lista_initiala([-76, 12, 24, -13, 144]) == [-67, 12, 12, -31, 12]
+
 def teste():
     test_afisare_numere_negative()
     test_afisare_numar_mic_egal_cu_cifra_introdusa()
     test_superprim()
+    test_inversul_numarului()
+    test_afisare_numere_din_lista_initiala()
 
 
 def meniu():
@@ -119,6 +174,9 @@ def meniu():
             print(afisare_numar_mic_egal_cu_cifra_introdusa(lista, cifra))
         elif cmd == '4':
             print(superprim(lista))
+        elif cmd == '5':
+            print(afisare_numere_din_lista_initiala(lista))
+            pass
         elif cmd == 'x':
             break
         pass
